@@ -1,17 +1,12 @@
-//
-var operandoa;
-var operandob;
+
+//variables de operacion
+var operaciona;
+var operacionb;
 var operacion;
 
 function init(){
-    //variables
-    var resultado = document.getElementById('resultado');
-    var reset = document.getElementById('reset');
-    var suma = document.getElementById('suma');
-    var resta = document.getElementById('resta');
-    var multiplicacion = document.getElementById('multiplicacion');
-    var division = document.getElementById('division');
-    var igual = document.getElementById('igual');
+
+    //crear todas las variables
     var uno = document.getElementById('uno');
     var dos = document.getElementById('dos');
     var tres = document.getElementById('tres');
@@ -22,8 +17,15 @@ function init(){
     var ocho = document.getElementById('ocho');
     var nueve = document.getElementById('nueve');
     var cero = document.getElementById('cero');
+    var resultado = document.getElementById('resultado');
+    var reset = document.getElementById('reset');
+    var suma = document.getElementById('suma');
+    var resta = document.getElementById('resta');
+    var multiplicacion = document.getElementById('multiplicacion');
+    var division = document.getElementById('division');
+    var igual = document.getElementById('igual');
   }
-  //Eventos de click
+  //interaccion con los botones
   uno.onclick = function(e){
     resultado.textContent = resultado.textContent  + "1";
 }
@@ -58,27 +60,27 @@ reset.onclick = function(e){
     resetear();
 }
 suma.onclick = function(e){
-    operandoa = resultado.textContent;
+    operaciona = resultado.textContent;
     operacion = "+";
     limpiar();
 }
 resta.onclick = function(e){
-    operandoa = resultado.textContent;
+    operaciona = resultado.textContent;
     operacion = "-";
     limpiar();
 }
 multiplicacion.onclick = function(e){
-    operandoa = resultado.textContent;
+    operaciona = resultado.textContent;
     operacion = "*";
     limpiar();
 }
 division.onclick = function(e){
-    operandoa = resultado.textContent;
+    operaciona = resultado.textContent;
     operacion = "/";
     limpiar();
 }
 igual.onclick = function(e){
-    operandob = resultado.textContent;
+    operacionb = resultado.textContent;
     resolver();
 }
 function limpiar(){
@@ -87,27 +89,29 @@ function limpiar(){
   
   function resetear(){
     resultado.textContent = "";
-    operandoa = 0;
-    operandob = 0;
+    operaciona = 0;
+    operacionb = 0;
     operacion = "";
   }
+
+  //operaciones basicas 
   function resolver(){
     var res = 0;
     switch(operacion){
       case "+":
-        res = parseFloat(operandoa) + parseFloat(operandob);
+        res = parseFloat(operaciona) + parseFloat(operacionb);
         break;
   
       case "-":
-          res = parseFloat(operandoa) - parseFloat(operandob);
+          res = parseFloat(operaciona) - parseFloat(operacionb);
           break;
   
       case "*":
-        res = parseFloat(operandoa) * parseFloat(operandob);
+        res = parseFloat(operaciona) * parseFloat(operacionb);
         break;
   
       case "/":
-        res = parseFloat(operandoa) / parseFloat(operandob);
+        res = parseFloat(operaciona) / parseFloat(operacionb);
         break;
     }
     resetear();
